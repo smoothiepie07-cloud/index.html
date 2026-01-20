@@ -11,16 +11,13 @@
 body{
 margin:0;
 overflow:hidden;
-transition:background 1s ease, filter .6s ease;
 background-size:cover;
 background-position:center;
 font-family:'Quicksand', sans-serif;
 }
 
-/* Glass overlay */
+/* NO WHITE OVERLAY */
 .overlay{
-backdrop-filter:blur(6px);
-background:rgba(255,255,255,0.25);
 min-height:100vh;
 padding:15px;
 display:flex;
@@ -45,16 +42,16 @@ text-shadow:0 0 10px #ff69b4,0 0 20px #ff69b4;
 text-align:center;
 }
 
-/* Text box glass */
+/* GLASS TEXT BOX */
 p{
-font-size:1.6em;
+font-size:1.7em;
 padding:20px;
 border-radius:20px;
 margin:15px;
 line-height:1.7;
-background:rgba(255,255,255,0.45);
-backdrop-filter:blur(8px);
-color:#000;
+background:rgba(255,255,255,0.25);
+backdrop-filter:blur(6px);
+color:black;
 }
 
 /* Button */
@@ -72,13 +69,13 @@ box-shadow:0 0 15px #ff69b4;
 /* Shooting star */
 .star{
 position:fixed;
-font-size:20px;
+font-size:22px;
 animation:shoot 1.5s linear forwards;
 }
 
 @keyframes shoot{
 0%{opacity:1; transform:translate(0,0);}
-100%{opacity:0; transform:translate(200px,150px);}
+100%{opacity:0; transform:translate(220px,150px);}
 }
 
 /* Emojis */
@@ -88,7 +85,7 @@ font-size:22px;
 animation:emojiFloat 6s linear forwards;
 }
 @keyframes emojiFloat{
-0%{opacity:1; transform:translateY(0);}
+0%{opacity:1;}
 100%{opacity:0; transform:translateY(-250px);}
 }
 
@@ -180,7 +177,7 @@ if(i>=text.length) clearInterval(timer);
 }
 
 /* Shooting star */
-function shootingStar(){
+setInterval(()=>{
 let s=document.createElement("div");
 s.className="star";
 s.innerHTML="🌠";
@@ -188,8 +185,7 @@ s.style.left=Math.random()*100+"vw";
 s.style.top=Math.random()*30+"vh";
 document.body.appendChild(s);
 setTimeout(()=>s.remove(),1500);
-}
-setInterval(shootingStar,2500);
+},2500);
 
 /* Emojis */
 setInterval(()=>{
@@ -233,9 +229,6 @@ m.play();
 }
 
 function showPage(n){
-document.body.style.filter="blur(6px)";
-setTimeout(()=>{document.body.style.filter="blur(0px)";},400);
-
 document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
 document.getElementById("p"+n).classList.add("active");
 
@@ -246,7 +239,7 @@ kissEffect();
 playMusic();
 }
 
-// First load
+// first load
 typeText("t1",texts[0]);
 playMusic();
 </script>
