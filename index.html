@@ -17,9 +17,9 @@ background-position:center;
 }
 
 .overlay{
-background:rgba(255,255,255,0.6);
+background:rgba(255,255,255,0.65);
 min-height:100vh;
-padding:20px;
+padding:25px;
 }
 
 .page{
@@ -36,34 +36,23 @@ from{opacity:0; transform:translateY(40px);}
 to{opacity:1; transform:translateY(0);}
 }
 
-/* Glowing Name */
 .glow{
 font-family:'Pacifico', cursive;
 font-size:4em;
 color:#ff2f92;
-text-shadow:
-0 0 5px #ff2f92,
-0 0 10px #ff2f92,
-0 0 20px #ff69b4,
-0 0 30px #ff69b4;
-animation:glowPulse 2s infinite alternate;
-}
-
-@keyframes glowPulse{
-from{opacity:0.8;}
-to{opacity:1;}
+text-shadow:0 0 10px #ff69b4,0 0 20px #ff69b4;
 }
 
 p{
-font-size:2.3em;
+font-size:2.6em;
 background:white;
-padding:30px;
-border-radius:30px;
-margin:25px;
-line-height:1.7;
+padding:35px;
+border-radius:35px;
+margin:30px;
+line-height:1.8;
+min-height:45vh;
 }
 
-/* Beautiful Button */
 .nextBtn{
 padding:18px 45px;
 border:none;
@@ -72,7 +61,7 @@ background:linear-gradient(45deg,#ff5fa2,#ff85c8);
 color:white;
 font-size:22px;
 margin:20px;
-box-shadow:0 0 15px #ff69b4;
+box-shadow:0 0 20px #ff69b4;
 animation:floatBtn 2s infinite alternate;
 }
 
@@ -81,88 +70,60 @@ from{transform:translateY(0);}
 to{transform:translateY(-6px);}
 }
 
-.nextBtn:hover{
-box-shadow:0 0 25px #ff2f92;
-}
-
-/* Heartbeat */
-.heartbeat{
-animation:beat 1s infinite;
-}
-
-@keyframes beat{
-0%{transform:scale(1);}
-50%{transform:scale(1.15);}
-100%{transform:scale(1);}
-}
-
-.snow{
-position:fixed;
-font-size:22px;
-animation:fall 7s linear infinite;
-}
-
-.sparkle{
+/* Water Droplets */
+.drop{
 position:fixed;
 font-size:20px;
-animation:spark 3s linear infinite;
+animation:dropFall 1.5s linear forwards;
 }
 
-@keyframes fall{
-0%{top:-10%;}
-100%{top:110%;}
+@keyframes dropFall{
+0%{opacity:1; transform:translateY(0);}
+100%{opacity:0; transform:translateY(120px);}
 }
 
-@keyframes spark{
-0%{opacity:1;}
-100%{opacity:0;}
+/* Kiss Floating */
+.kiss{
+position:fixed;
+font-size:30px;
+animation:kissFloat 4s ease-in-out forwards;
 }
 
-img.slide{
-width:240px;
-border-radius:20px;
-box-shadow:0 0 15px pink;
-margin:15px;
+@keyframes kissFloat{
+0%{opacity:1; transform:translateY(0) scale(1);}
+100%{opacity:0; transform:translateY(-200px) scale(1.5);}
 }
 </style>
 </head>
 
 <body>
 
-<audio id="music" controls style="width:80%;">
-<source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3">
-</audio>
-
 <div class="overlay">
 
 <div class="page active" id="p1">
 <div class="glow">Pooja ❤️</div>
-<p id="type1"></p>
-<button class="nextBtn" onclick="nextPage(2)">Next ➡️</button>
+<p id="t1"></p>
+<button class="nextBtn" onclick="showPage(2)">Next ➡️</button>
 </div>
 
 <div class="page" id="p2">
-<p id="type2"></p>
-<button class="nextBtn" onclick="nextPage(3)">Next ➡️</button>
+<p id="t2"></p>
+<button class="nextBtn" onclick="showPage(3)">Next ➡️</button>
 </div>
 
 <div class="page" id="p3">
-<img class="slide" id="slideshow" src="https://i.imgur.com/1Q9Z1Zm.png">
-<p>Hamari memories hamesha mere dil me rahengi ❤️</p>
-<button class="nextBtn" onclick="nextPage(4)">Next ➡️</button>
+<p id="t3"></p>
+<button class="nextBtn" onclick="showPage(4)">Next ➡️</button>
 </div>
 
 <div class="page" id="p4">
-<p id="type3"></p>
-<button class="nextBtn" onclick="nextPage(5)">Next ➡️</button>
+<p id="t4"></p>
+<button class="nextBtn" onclick="showPage(5)">Next ➡️</button>
 </div>
 
 <div class="page" id="p5">
-<p>
-Pooja…  
-Will you be mine forever? 🥹💖  
-</p>
-<button class="nextBtn heartbeat" onclick="fireworks()">YES ❤️</button>
+<p id="t5"></p>
+<button class="nextBtn" onclick="alert('I Love You Pooja ❤️ Forever')">Finish 💖</button>
 </div>
 
 </div>
@@ -178,13 +139,14 @@ const backgrounds=[
 
 document.body.style.backgroundImage=`url(${backgrounds[0]})`;
 
-function nextPage(n){
-document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
-document.getElementById("p"+n).classList.add("active");
-document.body.style.backgroundImage=`url(${backgrounds[n-1]})`;
-}
+const texts=[
+"Pooja… Tum meri zindagi ka sabse khoobsurat ehsaas ho. Tumhari muskurahat meri har thakaan mita deti hai, tumhari awaaz meri rooh ko sukoon deti hai. Tum meri duniya ho, meri dua ho, meri har khushi ki wajah ho.",
+"Tum Bubu ho aur main Dudu hoon, aur hamari kahani duniya ki sabse cute kahani hai. Tum saath ho toh har dard bhi pyaar ban jaata hai, tum door ho toh har khushi adhoori lagti hai.",
+"Tum meri subah ho, tum meri raat ho. Tum meri har soch, har khwab, har dua mein ho. Pooja, tum meri zindagi ka sabse khoobsurat hissa ho.",
+"Main wada karta hoon ki main tumhara haath kabhi nahi chhodunga. Har mushkil mein, har khushi mein, har mod par sirf tumhara saath nibhaunga.",
+"Pooja… tum meri kahani ho, tum mera sapna ho, tum mera aaj ho aur tum mera hamesha ho. I Love You so much ❤️"
+];
 
-// Typing text
 function typeText(id,text){
 let i=0;
 let el=document.getElementById(id);
@@ -193,59 +155,44 @@ let timer=setInterval(()=>{
 el.innerHTML+=text.charAt(i);
 i++;
 if(i>=text.length) clearInterval(timer);
-},40);
+},60);
 }
 
-typeText("type1","Pooja… Tum meri zindagi ka sabse pyara ehsaas ho 🥹 Tumhari muskurahat meri duniya hai 💖");
-typeText("type2","Tum Bubu ho, main Dudu hoon 🧸 Tumhare bina main adhoora hoon 💕");
-typeText("type3","Main wada karta hoon har janam sirf tumhara rahunga 💍");
-
-// Slideshow
-const pics=[
-"https://i.imgur.com/1Q9Z1Zm.png",
-"https://i.imgur.com/wO1Y7vZ.png",
-"https://i.imgur.com/0FQ0K6m.png"
-];
-let si=0;
-setInterval(()=>{
-document.getElementById("slideshow").src=pics[si];
-si=(si+1)%pics.length;
-},2000);
-
-// Snow
-setInterval(()=>{
-let s=document.createElement("div");
-s.className="snow";
-s.innerHTML="❄️";
-s.style.left=Math.random()*100+"vw";
-document.body.appendChild(s);
-setTimeout(()=>s.remove(),7000);
-},300);
-
-// Sparkles
-setInterval(()=>{
-let sp=document.createElement("div");
-sp.className="sparkle";
-sp.innerHTML="✨";
-sp.style.left=Math.random()*100+"vw";
-sp.style.top=Math.random()*100+"vh";
-document.body.appendChild(sp);
-setTimeout(()=>sp.remove(),3000);
-},600);
-
-// Fireworks
-function fireworks(){
-for(let i=0;i<40;i++){
-let f=document.createElement("div");
-f.className="sparkle";
-f.innerHTML="🎆";
-f.style.left=Math.random()*100+"vw";
-f.style.top=Math.random()*100+"vh";
-document.body.appendChild(f);
-setTimeout(()=>f.remove(),3000);
+function waterEffect(){
+for(let i=0;i<20;i++){
+let d=document.createElement("div");
+d.className="drop";
+d.innerHTML="💧";
+d.style.left=Math.random()*100+"vw";
+d.style.top=Math.random()*100+"vh";
+document.body.appendChild(d);
+setTimeout(()=>d.remove(),1500);
 }
-alert("I Love You Pooja ❤️ Forever");
 }
+
+function kissEffect(){
+for(let i=0;i<8;i++){
+let k=document.createElement("div");
+k.className="kiss";
+k.innerHTML="💋";
+k.style.left=Math.random()*100+"vw";
+k.style.top=Math.random()*100+"vh";
+document.body.appendChild(k);
+setTimeout(()=>k.remove(),4000);
+}
+}
+
+function showPage(n){
+document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+document.getElementById("p"+n).classList.add("active");
+document.body.style.backgroundImage=`url(${backgrounds[n-1]})`;
+typeText("t"+n,texts[n-1]);
+waterEffect();
+kissEffect();
+}
+
+// First page typing
+typeText("t1",texts[0]);
 </script>
 
 </body>
