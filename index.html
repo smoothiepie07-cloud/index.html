@@ -4,64 +4,63 @@
 <meta charset="UTF-8">
 <title>For Pooja ❤️</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@600&family=Pacifico&display=swap" rel="stylesheet">
 
 <style>
 body{
 margin:0;
-background:linear-gradient(135deg,#ff9a9e,#fad0c4);
+background:linear-gradient(135deg,#e0c3fc,#8ec5fc);
 text-align:center;
-color:white;
 overflow:hidden;
 }
 
 .page{
 display:none;
-padding:20px;
-font-family:'Dancing Script', cursive;
+padding:25px;
+font-family:'Quicksand', sans-serif;
+color:black;
 }
 
-.page.active{
-display:block;
-}
+.page.active{display:block;}
 
 h1{
 font-family:'Pacifico', cursive;
-font-size:2.6em;
-text-shadow:2px 2px 8px #ff4d6d;
+color:#6b006b;
+font-size:3em;
 }
 
 p{
 font-size:1.5em;
-background:rgba(255,255,255,0.25);
-padding:20px;
-border-radius:20px;
+background:rgba(255,255,255,0.85);
+padding:25px;
+border-radius:25px;
 margin:20px;
+line-height:1.6;
 }
 
 img{
 width:220px;
 border-radius:20px;
-box-shadow:0 0 20px pink;
-margin-top:15px;
+box-shadow:0 0 15px #ffb6c1;
+margin-top:20px;
 }
 
 button{
-padding:14px 28px;
+padding:16px 34px;
 border:none;
 border-radius:30px;
-background:#ff4d6d;
+background:#ff6fa5;
 color:white;
 font-size:18px;
 margin-top:20px;
-box-shadow:0 5px 10px rgba(0,0,0,0.3);
+box-shadow:0 5px 12px rgba(0,0,0,0.3);
 }
 
-.heart{
+.snow{
 position:fixed;
-font-size:22px;
-color:red;
-animation:fall 5s linear infinite;
+color:white;
+font-size:18px;
+animation:fall 6s linear infinite;
 }
 
 @keyframes fall{
@@ -73,65 +72,73 @@ animation:fall 5s linear infinite;
 
 <body>
 
-<audio autoplay loop>
+<!-- MUSIC -->
+<audio id="music" loop>
 <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
 </audio>
+<button onclick="document.getElementById('music').play()">🎵 Play Music</button>
 
 <!-- PAGE 1 -->
 <div class="page active" id="p1">
 <h1>For My Pooja ❤️</h1>
 <img src="https://i.imgur.com/1Q9Z1Zm.png">
 <p>
-Pooja 💖  
-Tum meri har muskurahat ki wajah ho,  
-Tum meri har dua ka jawab ho ✨  
+Pooja…  
+Tum meri zindagi ka sabse pyara hissa ho 🥹  
+Tumhari muskurahat meri har thakaan mita deti hai 💖  
+Tum mere dil ki har dhadkan me ho 🌸  
 </p>
 <button onclick="nextPage(2)">Next ➡️</button>
 </div>
 
 <!-- PAGE 2 -->
 <div class="page" id="p2">
-<h1>Pooja 🌸</h1>
+<img src="https://i.imgur.com/wO1Y7vZ.png">
 <p>
-I ᥣᥲ᥎ᥱ ᥡ᥆ᥙ s᥆ ᥲᥙᥴᥙ 🥹  
-Y᥆ᥙ ᥲrᥱ ᥲᥡ ᥕ᥆rᥣᥲ 💞  
-Tum meri rooh ka sukoon ho ❤️
+Tum Bubu ho, main Dudu hoon 🧸  
+Aur hamari kahani duniya ki sabse cute kahani hai 💕  
+Tum saath ho toh har dard bhi pyara lagta hai  
+Tum door ho toh har khushi adhoori lagti hai 🥺  
 </p>
 <button onclick="nextPage(3)">Next ➡️</button>
 </div>
 
 <!-- PAGE 3 -->
 <div class="page" id="p3">
-<h1>My Heart 💌</h1>
+<img src="https://i.imgur.com/0FQ0K6m.png">
 <p>
-Tum saath ho toh har dard me bhi khushi hai,  
-Tum door ho toh har khushi bhi adhoori hai 🥺  
-Pooja, tum meri zindagi ho 💖
+Tum meri subah ho, tum meri raat ho 🌙  
+Tum meri har dua ka jawab ho ✨  
+Tum meri har kahani ka sabse sundar hissa ho ❤️  
 </p>
 <button onclick="nextPage(4)">Next ➡️</button>
 </div>
 
 <!-- PAGE 4 -->
 <div class="page" id="p4">
-<h1>My Promise 💍</h1>
+<img src="https://i.imgur.com/LXJZJ9Y.png">
 <p>
-Main tumhara haath kabhi nahi chhodunga,  
-Har mushkil me tumhara saath nibhaunga 🌹  
-Tum meri har subah aur har shaam ho ❤️
+Main wada karta hoon…  
+Tumhare aansuon ko muskurahat banaunga 🌹  
+Tumhare gusse ko pyaar se manaunga 🥰  
+Aur har janam sirf tumhara rahunga 💍  
 </p>
 <button onclick="nextPage(5)">Next ➡️</button>
 </div>
 
 <!-- PAGE 5 -->
 <div class="page" id="p5">
-<h1>Forever 💖</h1>
+<img src="https://i.imgur.com/5qH5J7P.png">
 <p>
+Pooja,  
 Tum meri kahani ho,  
-Tum mera har sapna ho,  
-Aur Pooja…  
-Tum mera hamesha ho 🥹💘
+Tum mera sapna ho,  
+Tum mera aaj ho,  
+Aur tum mera hamesha ho 🥹💖  
+
+I Love You So Much ❤️  
 </p>
-<button onclick="alert('I Love You Pooja ❤️')">Finish 💌</button>
+<button onclick="alert('I Love You Pooja ❤️ Forever')">Finish 💌</button>
 </div>
 
 <script>
@@ -141,14 +148,14 @@ document.getElementById("p"+n).classList.add("active");
 }
 
 setInterval(()=>{
-let h=document.createElement("div");
-h.className="heart";
-h.innerHTML="❤️";
-h.style.left=Math.random()*100+"vw";
-document.body.appendChild(h);
-setTimeout(()=>h.remove(),5000);
+let s=document.createElement("div");
+s.className="snow";
+s.innerHTML="❄️";
+s.style.left=Math.random()*100+"vw";
+document.body.appendChild(s);
+setTimeout(()=>s.remove(),6000);
 },300);
 </script>
 
 </body>
-    </html>
+</html>
