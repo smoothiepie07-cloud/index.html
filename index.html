@@ -27,12 +27,7 @@ flex-direction:column;
 justify-content:space-between;
 }
 
-.page{
-display:none;
-animation:fadeSlide 1s ease;
-flex:1;
-}
-
+.page{display:none;animation:fadeSlide 1s ease;}
 .page.active{display:block;}
 
 @keyframes fadeSlide{
@@ -45,7 +40,6 @@ font-family:'Pacifico', cursive;
 font-size:3em;
 color:#ff2f92;
 text-shadow:0 0 10px #ff69b4,0 0 20px #ff69b4;
-margin-top:10px;
 }
 
 p{
@@ -56,10 +50,8 @@ border-radius:25px;
 margin:15px;
 line-height:1.7;
 position:relative;
-z-index:2;
 }
 
-/* Heart pulse behind text */
 p::before{
 content:"❤️";
 font-size:120px;
@@ -69,7 +61,6 @@ top:50%;
 left:50%;
 transform:translate(-50%,-50%);
 animation:pulse 2s infinite;
-z-index:-1;
 }
 
 @keyframes pulse{
@@ -90,24 +81,35 @@ box-shadow:0 0 15px #ff69b4;
 cursor:pointer;
 }
 
-/* Effects */
+/* Emoji Float */
+.emoji{
+position:fixed;
+font-size:24px;
+animation:emojiFloat 6s linear forwards;
+}
+
+@keyframes emojiFloat{
+0%{opacity:1; transform:translateY(0);}
+100%{opacity:0; transform:translateY(-250px);}
+}
+
+/* Water */
 .drop{
 position:fixed;
 font-size:20px;
 animation:dropFall 1.5s linear forwards;
 }
-
 @keyframes dropFall{
-0%{opacity:1; transform:translateY(0);}
+0%{opacity:1;}
 100%{opacity:0; transform:translateY(120px);}
 }
 
+/* Kiss */
 .kiss{
 position:fixed;
 font-size:26px;
 animation:kissFloat 4s ease-in-out forwards;
 }
-
 @keyframes kissFloat{
 0%{opacity:1;}
 100%{opacity:0; transform:translateY(-200px) scale(1.3);}
@@ -119,7 +121,6 @@ position:fixed;
 font-size:30px;
 animation:fire 3s ease-out forwards;
 }
-
 @keyframes fire{
 0%{opacity:1;}
 100%{opacity:0; transform:translateY(-200px);}
@@ -130,7 +131,7 @@ animation:fire 3s ease-out forwards;
 <body>
 
 <audio id="music" loop>
-<source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3">
+<source src="golden_brown.mp3">
 </audio>
 
 <div class="overlay">
@@ -164,22 +165,26 @@ animation:fire 3s ease-out forwards;
 </div>
 
 <script>
+// CHANGE YOUR NAME HERE
+const yourName="Your Name";
+
+// Anime couple backgrounds (free images)
 const backgrounds=[
-"https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1400&q=80",
-"https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1400&q=80",
-"https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1400&q=80",
-"https://images.unsplash.com/photo-1470770903676-69b98201ea1c?auto=format&fit=crop&w=1400&q=80",
-"https://images.unsplash.com/photo-1499346030926-9a72daac6c63?auto=format&fit=crop&w=1400&q=80"
+"https://cdn.pixabay.com/photo/2023/03/14/22/35/anime-7853646_1280.jpg",
+"https://cdn.pixabay.com/photo/2023/05/10/18/45/anime-7983795_1280.jpg",
+"https://cdn.pixabay.com/photo/2023/06/14/22/47/anime-8063866_1280.jpg",
+"https://cdn.pixabay.com/photo/2023/02/25/18/32/anime-7816804_1280.jpg",
+"https://cdn.pixabay.com/photo/2023/07/09/21/30/anime-8117061_1280.jpg"
 ];
 
 document.body.style.backgroundImage=`url(${backgrounds[0]})`;
 
 const texts=[
-"Pooja… Tum meri zindagi ka sabse khoobsurat ehsaas ho. Tumhari muskurahat meri duniya roshan kar deti hai aur tumhari awaaz meri rooh ko sukoon deti hai.",
-"Tum Bubu ho aur main Dudu hoon. Tumhare bina har khushi adhoori hai aur tumhare saath har dard bhi pyaar ban jaata hai.",
-"Tum meri subah ho, tum meri raat ho. Tum meri har soch, har dua aur har khwab mein ho.",
-"Main wada karta hoon ki main har mod par tumhara haath pakad kar chalunga. Har janam tumhara hi rahunga.",
-"Pooja… tum meri kahani ho, tum mera sapna ho, tum mera aaj ho aur tum mera hamesha ho. I Love You ❤️"
+"Pooja… Tum meri zindagi ka sabse khoobsurat ehsaas ho. Tumhari muskurahat meri duniya roshan kar deti hai. — With love, "+yourName+" ❤️",
+"Tum Bubu ho aur main Dudu hoon. Tumhare saath har pal ek fairy tale lagta hai. Tum meri zindagi ka sabse pyaara hissa ho.",
+"Tum meri subah ho, tum meri raat ho. Tum meri har dua, har khwab aur har muskurahat ho.",
+"Main wada karta hoon ki main har mod par tumhara haath pakad kar chalunga. Tum sirf meri ho aur hamesha meri rahogi.",
+"Pooja… tum meri kahani ho, tum mera sapna ho, tum mera aaj ho aur tum mera hamesha ho. I Love You ❤️ — "+yourName
 ];
 
 function typeText(id,text){
@@ -193,8 +198,21 @@ if(i>=text.length) clearInterval(timer);
 },55);
 }
 
+function emojiRain(){
+const emojis=["💖","😍","🥰","💕","✨","💋","🌸"];
+let e=document.createElement("div");
+e.className="emoji";
+e.innerHTML=emojis[Math.floor(Math.random()*emojis.length)];
+e.style.left=Math.random()*100+"vw";
+e.style.top="100vh";
+document.body.appendChild(e);
+setTimeout(()=>e.remove(),6000);
+}
+
+setInterval(emojiRain,500);
+
 function waterEffect(){
-for(let i=0;i<12;i++){
+for(let i=0;i<10;i++){
 let d=document.createElement("div");
 d.className="drop";
 d.innerHTML="💧";
@@ -206,7 +224,7 @@ setTimeout(()=>d.remove(),1500);
 }
 
 function kissEffect(){
-for(let i=0;i<5;i++){
+for(let i=0;i<4;i++){
 let k=document.createElement("div");
 k.className="kiss";
 k.innerHTML="💋";
@@ -217,6 +235,12 @@ setTimeout(()=>k.remove(),4000);
 }
 }
 
+function playMusic(){
+let m=document.getElementById("music");
+m.currentTime=0;
+m.play();
+}
+
 function showPage(n){
 document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
 document.getElementById("p"+n).classList.add("active");
@@ -224,23 +248,11 @@ document.body.style.backgroundImage=`url(${backgrounds[n-1]})`;
 typeText("t"+n,texts[n-1]);
 waterEffect();
 kissEffect();
-fadeMusic();
-}
-
-function fadeMusic(){
-let m=document.getElementById("music");
-m.play();
-m.volume=0;
-let v=0;
-let fade=setInterval(()=>{
-v+=0.05;
-m.volume=v;
-if(v>=1) clearInterval(fade);
-},150);
+playMusic();
 }
 
 function finale(){
-for(let i=0;i<30;i++){
+for(let i=0;i<25;i++){
 let f=document.createElement("div");
 f.className="fire";
 f.innerHTML="🎆";
@@ -249,12 +261,12 @@ f.style.top=Math.random()*100+"vh";
 document.body.appendChild(f);
 setTimeout(()=>f.remove(),3000);
 }
-alert("I Love You Pooja ❤️ Forever");
+alert("I Love You Pooja ❤️ Forever\n— "+yourName);
 }
 
 // First page
 typeText("t1",texts[0]);
-fadeMusic();
+playMusic();
 </script>
 
 </body>
