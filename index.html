@@ -9,21 +9,21 @@
 <style>
 body{
 margin:0;
-background:url("https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1400&q=80") no-repeat center center fixed;
-background-size:cover;
 text-align:center;
 overflow:hidden;
+transition:background 1s ease;
+background-size:cover;
+background-position:center;
 }
 
 .overlay{
 background:rgba(255,255,255,0.55);
 min-height:100vh;
-padding:20px;
+padding:15px;
 }
 
 .page{
 display:none;
-padding:25px;
 font-family:'Quicksand', sans-serif;
 color:black;
 position:relative;
@@ -33,7 +33,7 @@ position:relative;
 
 h1{
 font-family:'Pacifico', cursive;
-color:#5a005a;
+color:#7b006b;
 font-size:3em;
 }
 
@@ -42,22 +42,22 @@ font-size:1.6em;
 background:rgba(255,255,255,0.9);
 padding:25px;
 border-radius:25px;
-margin:25px;
-line-height:1.6;
+margin:20px;
+line-height:1.7;
 }
 
 .sticker-left{
 position:absolute;
-left:0;
+left:5px;
 top:80px;
-width:130px;
+width:140px;
 }
 
 .sticker-right{
 position:absolute;
-right:0;
+right:5px;
 top:80px;
-width:130px;
+width:140px;
 }
 
 button{
@@ -67,127 +67,146 @@ border-radius:30px;
 background:#ff5fa2;
 color:white;
 font-size:18px;
-margin-top:20px;
+margin:20px;
 box-shadow:0 5px 12px rgba(0,0,0,0.3);
 }
 
 .snow{
 position:fixed;
-font-size:18px;
+font-size:20px;
 animation:fall 7s linear infinite;
+}
+
+.sparkle{
+position:fixed;
+font-size:18px;
+animation:spark 3s linear infinite;
 }
 
 @keyframes fall{
 0%{top:-10%;}
 100%{top:110%;}
 }
+
+@keyframes spark{
+0%{opacity:1;}
+100%{opacity:0;}
+}
 </style>
 </head>
 
 <body>
 
-<div class="overlay">
-
-<!-- MUSIC -->
-<audio id="music" controls style="width:80%; margin:10px;">
-<source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+<audio id="music" controls style="width:80%;">
+<source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3">
 </audio>
 
-<!-- PAGE 1 -->
+<div class="overlay">
+
 <div class="page active" id="p1">
-<img class="sticker-left" src="https://i.imgur.com/wO1Y7vZ.png">
-<img class="sticker-right" src="https://i.imgur.com/0FQ0K6m.png">
-
+<img class="sticker-left" src="https://media.tenor.com/6d5b9v0rJvAAAAAC/bubu-dudu-love.gif">
+<img class="sticker-right" src="https://media.tenor.com/qFz9G7wN7bAAAAAC/bubu-dudu-cute.gif">
 <h1>For My Pooja ❤️</h1>
-
 <p>
 Pooja…  
-Tum meri zindagi ka sabse khoobsurat ehsaas ho 🥹  
-Tumhari muskurahat meri duniya roshan kar deti hai 💖  
-Tum meri rooh ka sukoon ho 🌸  
+Tum meri zindagi ka sabse pyara ehsaas ho 🥹  
+Tumhari muskurahat meri duniya hai 💖  
 </p>
-
 <button onclick="nextPage(2)">Next ➡️</button>
 </div>
 
-<!-- PAGE 2 -->
 <div class="page" id="p2">
-<img class="sticker-left" src="https://i.imgur.com/LXJZJ9Y.png">
-<img class="sticker-right" src="https://i.imgur.com/5qH5J7P.png">
-
+<img class="sticker-left" src="https://media.tenor.com/9YF2v9j1n5gAAAAC/bubu-dudu-hug.gif">
+<img class="sticker-right" src="https://media.tenor.com/6d5b9v0rJvAAAAAC/bubu-dudu-love.gif">
 <p>
 Tum Bubu ho, main Dudu hoon 🧸  
-Aur hamari kahani duniya ki sabse cute kahani hai 💕  
-Tum saath ho toh har dard bhi pyara lagta hai  
-Tum door ho toh har khushi adhoori lagti hai 🥺  
+Aur tumhare bina main adhoora hoon 💕  
 </p>
-
 <button onclick="nextPage(3)">Next ➡️</button>
 </div>
 
-<!-- PAGE 3 -->
 <div class="page" id="p3">
-<img class="sticker-left" src="https://i.imgur.com/1Q9Z1Zm.png">
-<img class="sticker-right" src="https://i.imgur.com/wO1Y7vZ.png">
-
+<img class="sticker-left" src="https://media.tenor.com/qFz9G7wN7bAAAAAC/bubu-dudu-cute.gif">
+<img class="sticker-right" src="https://media.tenor.com/9YF2v9j1n5gAAAAC/bubu-dudu-hug.gif">
 <p>
-Tum meri subah ho, tum meri raat ho 🌙  
-Tum meri har dua ka jawab ho ✨  
-Tum meri har kahani ka sabse sundar hissa ho ❤️  
+Tum meri subah ho, meri raat ho 🌙  
+Tum meri har dua ho ✨  
 </p>
-
 <button onclick="nextPage(4)">Next ➡️</button>
 </div>
 
-<!-- PAGE 4 -->
 <div class="page" id="p4">
-<img class="sticker-left" src="https://i.imgur.com/0FQ0K6m.png">
-<img class="sticker-right" src="https://i.imgur.com/LXJZJ9Y.png">
-
+<img class="sticker-left" src="https://media.tenor.com/6d5b9v0rJvAAAAAC/bubu-dudu-love.gif">
+<img class="sticker-right" src="https://media.tenor.com/qFz9G7wN7bAAAAAC/bubu-dudu-cute.gif">
 <p>
-Main wada karta hoon…  
-Tumhare aansuon ko muskurahat banaunga 🌹  
-Tumhare gusse ko pyaar se manaunga 🥰  
-Aur har janam sirf tumhara rahunga 💍  
+Main wada karta hoon  
+Har janam sirf tumhara rahunga 💍  
 </p>
-
 <button onclick="nextPage(5)">Next ➡️</button>
 </div>
 
-<!-- PAGE 5 -->
 <div class="page" id="p5">
-<img class="sticker-left" src="https://i.imgur.com/5qH5J7P.png">
-<img class="sticker-right" src="https://i.imgur.com/1Q9Z1Zm.png">
-
+<img class="sticker-left" src="https://media.tenor.com/9YF2v9j1n5gAAAAC/bubu-dudu-hug.gif">
+<img class="sticker-right" src="https://media.tenor.com/6d5b9v0rJvAAAAAC/bubu-dudu-love.gif">
 <p>
-Pooja,  
-Tum meri kahani ho,  
-Tum mera sapna ho,  
-Tum mera aaj ho,  
-Aur tum mera hamesha ho 🥹💖  
-
-I Love You So Much ❤️  
+Pooja…  
+Will you be mine forever? 🥹💖  
 </p>
-
-<button onclick="alert('I Love You Pooja ❤️ Forever')">Finish 💌</button>
+<button onclick="fireworks()">YES ❤️</button>
 </div>
 
 </div>
 
 <script>
+const backgrounds=[
+"https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1400&q=80",
+"https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1400&q=80",
+"https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1400&q=80",
+"https://images.unsplash.com/photo-1470770903676-69b98201ea1c?auto=format&fit=crop&w=1400&q=80",
+"https://images.unsplash.com/photo-1499346030926-9a72daac6c63?auto=format&fit=crop&w=1400&q=80"
+];
+
+let current=1;
+document.body.style.backgroundImage=`url(${backgrounds[0]})`;
+
 function nextPage(n){
 document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
 document.getElementById("p"+n).classList.add("active");
+document.body.style.backgroundImage=`url(${backgrounds[n-1]})`;
+current=n;
 }
 
 setInterval(()=>{
 let s=document.createElement("div");
 s.className="snow";
-s.innerHTML="❄️✨";
+s.innerHTML="❄️";
 s.style.left=Math.random()*100+"vw";
 document.body.appendChild(s);
 setTimeout(()=>s.remove(),7000);
 },300);
+
+setInterval(()=>{
+let sp=document.createElement("div");
+sp.className="sparkle";
+sp.innerHTML="✨";
+sp.style.left=Math.random()*100+"vw";
+sp.style.top=Math.random()*100+"vh";
+document.body.appendChild(sp);
+setTimeout(()=>sp.remove(),3000);
+},600);
+
+function fireworks(){
+for(let i=0;i<30;i++){
+let f=document.createElement("div");
+f.className="sparkle";
+f.innerHTML="🎆";
+f.style.left=Math.random()*100+"vw";
+f.style.top=Math.random()*100+"vh";
+document.body.appendChild(f);
+setTimeout(()=>f.remove(),3000);
+}
+alert("I Love You Pooja ❤️ Forever");
+}
 </script>
 
 </body>
