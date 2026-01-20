@@ -104,6 +104,26 @@ animation:drop 1.5s linear forwards;
 @keyframes drop{
 100%{opacity:0;transform:translateY(120px);}
 }
+
+/* === ONLY NEW ADDITION === */
+.funLine{
+font-family:cursive;
+font-size:2em;
+color:#ff4fa2;
+text-align:center;
+margin-top:15px;
+text-shadow:0 0 6px #ff69b4;
+}
+
+.laughEmoji{
+position:fixed;
+font-size:26px;
+animation:laughFloat 4s linear forwards;
+}
+
+@keyframes laughFloat{
+100%{opacity:0;transform:translateY(-220px);}
+}
 </style>
 </head>
 
@@ -132,6 +152,12 @@ animation:drop 1.5s linear forwards;
 
 <div class="page" id="p5">
 <p id="t5"></p>
+
+<!-- ONLY NEW LINE -->
+<div class="funLine">
+Pregnant girls smile hard like you 😂😂❤️
+</div>
+
 </div>
 
 <script>
@@ -184,6 +210,17 @@ e.style.top="100vh";
 document.body.appendChild(e);
 setTimeout(()=>e.remove(),6000);
 },700);
+
+/* === ONLY NEW ADDITION === */
+setInterval(()=>{
+let l=document.createElement("div");
+l.className="laughEmoji";
+l.innerHTML=["😂","🤣","😆","💖"][Math.floor(Math.random()*4)];
+l.style.left=Math.random()*100+"vw";
+l.style.top="100vh";
+document.body.appendChild(l);
+setTimeout(()=>l.remove(),4000);
+},900);
 
 function water(){
 for(let i=0;i<6;i++){
