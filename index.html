@@ -9,9 +9,16 @@
 <style>
 body{
 margin:0;
-background:linear-gradient(135deg,#e0c3fc,#8ec5fc);
+background:url("https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1400&q=80") no-repeat center center fixed;
+background-size:cover;
 text-align:center;
 overflow:hidden;
+}
+
+.overlay{
+background:rgba(255,255,255,0.55);
+min-height:100vh;
+padding:20px;
 }
 
 .page{
@@ -19,37 +26,45 @@ display:none;
 padding:25px;
 font-family:'Quicksand', sans-serif;
 color:black;
+position:relative;
 }
 
 .page.active{display:block;}
 
 h1{
 font-family:'Pacifico', cursive;
-color:#6b006b;
+color:#5a005a;
 font-size:3em;
 }
 
 p{
-font-size:1.5em;
-background:rgba(255,255,255,0.85);
+font-size:1.6em;
+background:rgba(255,255,255,0.9);
 padding:25px;
 border-radius:25px;
-margin:20px;
+margin:25px;
 line-height:1.6;
 }
 
-img{
-width:220px;
-border-radius:20px;
-box-shadow:0 0 15px #ffb6c1;
-margin-top:20px;
+.sticker-left{
+position:absolute;
+left:0;
+top:80px;
+width:130px;
+}
+
+.sticker-right{
+position:absolute;
+right:0;
+top:80px;
+width:130px;
 }
 
 button{
-padding:16px 34px;
+padding:16px 36px;
 border:none;
 border-radius:30px;
-background:#ff6fa5;
+background:#ff5fa2;
 color:white;
 font-size:18px;
 margin-top:20px;
@@ -58,9 +73,8 @@ box-shadow:0 5px 12px rgba(0,0,0,0.3);
 
 .snow{
 position:fixed;
-color:white;
 font-size:18px;
-animation:fall 6s linear infinite;
+animation:fall 7s linear infinite;
 }
 
 @keyframes fall{
@@ -72,63 +86,79 @@ animation:fall 6s linear infinite;
 
 <body>
 
+<div class="overlay">
+
 <!-- MUSIC -->
-<audio id="music" loop>
+<audio id="music" controls style="width:80%; margin:10px;">
 <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
 </audio>
-<button onclick="document.getElementById('music').play()">🎵 Play Music</button>
 
 <!-- PAGE 1 -->
 <div class="page active" id="p1">
+<img class="sticker-left" src="https://i.imgur.com/wO1Y7vZ.png">
+<img class="sticker-right" src="https://i.imgur.com/0FQ0K6m.png">
+
 <h1>For My Pooja ❤️</h1>
-<img src="https://i.imgur.com/1Q9Z1Zm.png">
+
 <p>
 Pooja…  
-Tum meri zindagi ka sabse pyara hissa ho 🥹  
-Tumhari muskurahat meri har thakaan mita deti hai 💖  
-Tum mere dil ki har dhadkan me ho 🌸  
+Tum meri zindagi ka sabse khoobsurat ehsaas ho 🥹  
+Tumhari muskurahat meri duniya roshan kar deti hai 💖  
+Tum meri rooh ka sukoon ho 🌸  
 </p>
+
 <button onclick="nextPage(2)">Next ➡️</button>
 </div>
 
 <!-- PAGE 2 -->
 <div class="page" id="p2">
-<img src="https://i.imgur.com/wO1Y7vZ.png">
+<img class="sticker-left" src="https://i.imgur.com/LXJZJ9Y.png">
+<img class="sticker-right" src="https://i.imgur.com/5qH5J7P.png">
+
 <p>
 Tum Bubu ho, main Dudu hoon 🧸  
 Aur hamari kahani duniya ki sabse cute kahani hai 💕  
 Tum saath ho toh har dard bhi pyara lagta hai  
 Tum door ho toh har khushi adhoori lagti hai 🥺  
 </p>
+
 <button onclick="nextPage(3)">Next ➡️</button>
 </div>
 
 <!-- PAGE 3 -->
 <div class="page" id="p3">
-<img src="https://i.imgur.com/0FQ0K6m.png">
+<img class="sticker-left" src="https://i.imgur.com/1Q9Z1Zm.png">
+<img class="sticker-right" src="https://i.imgur.com/wO1Y7vZ.png">
+
 <p>
 Tum meri subah ho, tum meri raat ho 🌙  
 Tum meri har dua ka jawab ho ✨  
 Tum meri har kahani ka sabse sundar hissa ho ❤️  
 </p>
+
 <button onclick="nextPage(4)">Next ➡️</button>
 </div>
 
 <!-- PAGE 4 -->
 <div class="page" id="p4">
-<img src="https://i.imgur.com/LXJZJ9Y.png">
+<img class="sticker-left" src="https://i.imgur.com/0FQ0K6m.png">
+<img class="sticker-right" src="https://i.imgur.com/LXJZJ9Y.png">
+
 <p>
 Main wada karta hoon…  
 Tumhare aansuon ko muskurahat banaunga 🌹  
 Tumhare gusse ko pyaar se manaunga 🥰  
 Aur har janam sirf tumhara rahunga 💍  
 </p>
+
 <button onclick="nextPage(5)">Next ➡️</button>
 </div>
 
 <!-- PAGE 5 -->
 <div class="page" id="p5">
-<img src="https://i.imgur.com/5qH5J7P.png">
+<img class="sticker-left" src="https://i.imgur.com/5qH5J7P.png">
+<img class="sticker-right" src="https://i.imgur.com/1Q9Z1Zm.png">
+
 <p>
 Pooja,  
 Tum meri kahani ho,  
@@ -138,7 +168,10 @@ Aur tum mera hamesha ho 🥹💖
 
 I Love You So Much ❤️  
 </p>
+
 <button onclick="alert('I Love You Pooja ❤️ Forever')">Finish 💌</button>
+</div>
+
 </div>
 
 <script>
@@ -150,10 +183,10 @@ document.getElementById("p"+n).classList.add("active");
 setInterval(()=>{
 let s=document.createElement("div");
 s.className="snow";
-s.innerHTML="❄️";
+s.innerHTML="❄️✨";
 s.style.left=Math.random()*100+"vw";
 document.body.appendChild(s);
-setTimeout(()=>s.remove(),6000);
+setTimeout(()=>s.remove(),7000);
 },300);
 </script>
 
