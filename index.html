@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <meta charset="UTF-8">
 <title>For Pooja ❤️</title>
@@ -26,49 +26,74 @@ padding:20px;
 display:none;
 font-family:'Quicksand', sans-serif;
 color:black;
-position:relative;
+animation:fadeSlide 1s ease;
 }
 
 .page.active{display:block;}
 
-h1{
+@keyframes fadeSlide{
+from{opacity:0; transform:translateY(40px);}
+to{opacity:1; transform:translateY(0);}
+}
+
+/* Glowing Name */
+.glow{
 font-family:'Pacifico', cursive;
-color:#7b006b;
-font-size:3.8em;
+font-size:4em;
+color:#ff2f92;
+text-shadow:
+0 0 5px #ff2f92,
+0 0 10px #ff2f92,
+0 0 20px #ff69b4,
+0 0 30px #ff69b4;
+animation:glowPulse 2s infinite alternate;
+}
+
+@keyframes glowPulse{
+from{opacity:0.8;}
+to{opacity:1;}
 }
 
 p{
 font-size:2.3em;
-background:rgba(255,255,255,0.95);
+background:white;
 padding:30px;
 border-radius:30px;
 margin:25px;
 line-height:1.7;
 }
 
-.sticker-left{
-position:absolute;
-left:5px;
-top:120px;
-width:150px;
-}
-
-.sticker-right{
-position:absolute;
-right:5px;
-top:120px;
-width:150px;
-}
-
-button{
-padding:18px 40px;
+/* Beautiful Button */
+.nextBtn{
+padding:18px 45px;
 border:none;
-border-radius:40px;
-background:#ff5fa2;
+border-radius:50px;
+background:linear-gradient(45deg,#ff5fa2,#ff85c8);
 color:white;
-font-size:20px;
+font-size:22px;
 margin:20px;
-box-shadow:0 5px 12px rgba(0,0,0,0.3);
+box-shadow:0 0 15px #ff69b4;
+animation:floatBtn 2s infinite alternate;
+}
+
+@keyframes floatBtn{
+from{transform:translateY(0);}
+to{transform:translateY(-6px);}
+}
+
+.nextBtn:hover{
+box-shadow:0 0 25px #ff2f92;
+}
+
+/* Heartbeat */
+.heartbeat{
+animation:beat 1s infinite;
+}
+
+@keyframes beat{
+0%{transform:scale(1);}
+50%{transform:scale(1.15);}
+100%{transform:scale(1);}
 }
 
 .snow{
@@ -92,77 +117,52 @@ animation:spark 3s linear infinite;
 0%{opacity:1;}
 100%{opacity:0;}
 }
+
+img.slide{
+width:240px;
+border-radius:20px;
+box-shadow:0 0 15px pink;
+margin:15px;
+}
 </style>
 </head>
 
 <body>
 
-<audio id="music" controls style="width:85%;">
+<audio id="music" controls style="width:80%;">
 <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3">
 </audio>
 
 <div class="overlay">
 
 <div class="page active" id="p1">
-<img class="sticker-left" src="https://media.tenor.com/6d5b9v0rJvAAAAAC/bubu-dudu-love.gif">
-<img class="sticker-right" src="https://media.tenor.com/qFz9G7wN7bAAAAAC/bubu-dudu-cute.gif">
-
-<h1>For My Pooja ❤️</h1>
-<p>
-Pooja…  
-Tum meri zindagi ka sabse pyara ehsaas ho 🥹  
-Tumhari muskurahat meri duniya hai 💖  
-Tum meri rooh ka sukoon ho 🌸  
-</p>
-<button onclick="nextPage(2)">Next ➡️</button>
+<div class="glow">Pooja ❤️</div>
+<p id="type1"></p>
+<button class="nextBtn" onclick="nextPage(2)">Next ➡️</button>
 </div>
 
 <div class="page" id="p2">
-<img class="sticker-left" src="https://media.tenor.com/9YF2v9j1n5gAAAAC/bubu-dudu-hug.gif">
-<img class="sticker-right" src="https://media.tenor.com/6d5b9v0rJvAAAAAC/bubu-dudu-love.gif">
-
-<p>
-Tum Bubu ho, main Dudu hoon 🧸  
-Aur tumhare bina main adhoora hoon 💕  
-Tum saath ho toh har dard bhi pyara lagta hai 🥺  
-</p>
-<button onclick="nextPage(3)">Next ➡️</button>
+<p id="type2"></p>
+<button class="nextBtn" onclick="nextPage(3)">Next ➡️</button>
 </div>
 
 <div class="page" id="p3">
-<img class="sticker-left" src="https://media.tenor.com/qFz9G7wN7bAAAAAC/bubu-dudu-cute.gif">
-<img class="sticker-right" src="https://media.tenor.com/9YF2v9j1n5gAAAAC/bubu-dudu-hug.gif">
-
-<p>
-Tum meri subah ho, meri raat ho 🌙  
-Tum meri har dua ho ✨  
-Tum meri har kahani ka sabse khoobsurat hissa ho ❤️  
-</p>
-<button onclick="nextPage(4)">Next ➡️</button>
+<img class="slide" id="slideshow" src="https://i.imgur.com/1Q9Z1Zm.png">
+<p>Hamari memories hamesha mere dil me rahengi ❤️</p>
+<button class="nextBtn" onclick="nextPage(4)">Next ➡️</button>
 </div>
 
 <div class="page" id="p4">
-<img class="sticker-left" src="https://media.tenor.com/6d5b9v0rJvAAAAAC/bubu-dudu-love.gif">
-<img class="sticker-right" src="https://media.tenor.com/qFz9G7wN7bAAAAAC/bubu-dudu-cute.gif">
-
-<p>
-Main wada karta hoon…  
-Har janam sirf tumhara rahunga 💍  
-Har musibat me tumhara haath pakad kar chalunga 🌹  
-</p>
-<button onclick="nextPage(5)">Next ➡️</button>
+<p id="type3"></p>
+<button class="nextBtn" onclick="nextPage(5)">Next ➡️</button>
 </div>
 
 <div class="page" id="p5">
-<img class="sticker-left" src="https://media.tenor.com/9YF2v9j1n5gAAAAC/bubu-dudu-hug.gif">
-<img class="sticker-right" src="https://media.tenor.com/6d5b9v0rJvAAAAAC/bubu-dudu-love.gif">
-
 <p>
 Pooja…  
 Will you be mine forever? 🥹💖  
-Will you walk with me in every tomorrow? 💍  
 </p>
-<button onclick="fireworks()">YES ❤️</button>
+<button class="nextBtn heartbeat" onclick="fireworks()">YES ❤️</button>
 </div>
 
 </div>
@@ -184,6 +184,35 @@ document.getElementById("p"+n).classList.add("active");
 document.body.style.backgroundImage=`url(${backgrounds[n-1]})`;
 }
 
+// Typing text
+function typeText(id,text){
+let i=0;
+let el=document.getElementById(id);
+el.innerHTML="";
+let timer=setInterval(()=>{
+el.innerHTML+=text.charAt(i);
+i++;
+if(i>=text.length) clearInterval(timer);
+},40);
+}
+
+typeText("type1","Pooja… Tum meri zindagi ka sabse pyara ehsaas ho 🥹 Tumhari muskurahat meri duniya hai 💖");
+typeText("type2","Tum Bubu ho, main Dudu hoon 🧸 Tumhare bina main adhoora hoon 💕");
+typeText("type3","Main wada karta hoon har janam sirf tumhara rahunga 💍");
+
+// Slideshow
+const pics=[
+"https://i.imgur.com/1Q9Z1Zm.png",
+"https://i.imgur.com/wO1Y7vZ.png",
+"https://i.imgur.com/0FQ0K6m.png"
+];
+let si=0;
+setInterval(()=>{
+document.getElementById("slideshow").src=pics[si];
+si=(si+1)%pics.length;
+},2000);
+
+// Snow
 setInterval(()=>{
 let s=document.createElement("div");
 s.className="snow";
@@ -193,6 +222,7 @@ document.body.appendChild(s);
 setTimeout(()=>s.remove(),7000);
 },300);
 
+// Sparkles
 setInterval(()=>{
 let sp=document.createElement("div");
 sp.className="sparkle";
@@ -203,8 +233,9 @@ document.body.appendChild(sp);
 setTimeout(()=>sp.remove(),3000);
 },600);
 
+// Fireworks
 function fireworks(){
-for(let i=0;i<30;i++){
+for(let i=0;i<40;i++){
 let f=document.createElement("div");
 f.className="sparkle";
 f.innerHTML="🎆";
