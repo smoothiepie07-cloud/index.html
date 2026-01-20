@@ -17,9 +17,9 @@ background-position:center;
 }
 
 .overlay{
-background:rgba(255,255,255,0.55);
+background:rgba(255,255,255,0.6);
 min-height:100vh;
-padding:15px;
+padding:20px;
 }
 
 .page{
@@ -34,52 +34,52 @@ position:relative;
 h1{
 font-family:'Pacifico', cursive;
 color:#7b006b;
-font-size:3em;
+font-size:3.8em;
 }
 
 p{
-font-size:1.6em;
-background:rgba(255,255,255,0.9);
-padding:25px;
-border-radius:25px;
-margin:20px;
+font-size:2.3em;
+background:rgba(255,255,255,0.95);
+padding:30px;
+border-radius:30px;
+margin:25px;
 line-height:1.7;
 }
 
 .sticker-left{
 position:absolute;
 left:5px;
-top:80px;
-width:140px;
+top:120px;
+width:150px;
 }
 
 .sticker-right{
 position:absolute;
 right:5px;
-top:80px;
-width:140px;
+top:120px;
+width:150px;
 }
 
 button{
-padding:16px 36px;
+padding:18px 40px;
 border:none;
-border-radius:30px;
+border-radius:40px;
 background:#ff5fa2;
 color:white;
-font-size:18px;
+font-size:20px;
 margin:20px;
 box-shadow:0 5px 12px rgba(0,0,0,0.3);
 }
 
 .snow{
 position:fixed;
-font-size:20px;
+font-size:22px;
 animation:fall 7s linear infinite;
 }
 
 .sparkle{
 position:fixed;
-font-size:18px;
+font-size:20px;
 animation:spark 3s linear infinite;
 }
 
@@ -97,7 +97,7 @@ animation:spark 3s linear infinite;
 
 <body>
 
-<audio id="music" controls style="width:80%;">
+<audio id="music" controls style="width:85%;">
 <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3">
 </audio>
 
@@ -106,11 +106,13 @@ animation:spark 3s linear infinite;
 <div class="page active" id="p1">
 <img class="sticker-left" src="https://media.tenor.com/6d5b9v0rJvAAAAAC/bubu-dudu-love.gif">
 <img class="sticker-right" src="https://media.tenor.com/qFz9G7wN7bAAAAAC/bubu-dudu-cute.gif">
+
 <h1>For My Pooja ❤️</h1>
 <p>
 Pooja…  
 Tum meri zindagi ka sabse pyara ehsaas ho 🥹  
 Tumhari muskurahat meri duniya hai 💖  
+Tum meri rooh ka sukoon ho 🌸  
 </p>
 <button onclick="nextPage(2)">Next ➡️</button>
 </div>
@@ -118,9 +120,11 @@ Tumhari muskurahat meri duniya hai 💖
 <div class="page" id="p2">
 <img class="sticker-left" src="https://media.tenor.com/9YF2v9j1n5gAAAAC/bubu-dudu-hug.gif">
 <img class="sticker-right" src="https://media.tenor.com/6d5b9v0rJvAAAAAC/bubu-dudu-love.gif">
+
 <p>
 Tum Bubu ho, main Dudu hoon 🧸  
 Aur tumhare bina main adhoora hoon 💕  
+Tum saath ho toh har dard bhi pyara lagta hai 🥺  
 </p>
 <button onclick="nextPage(3)">Next ➡️</button>
 </div>
@@ -128,9 +132,11 @@ Aur tumhare bina main adhoora hoon 💕
 <div class="page" id="p3">
 <img class="sticker-left" src="https://media.tenor.com/qFz9G7wN7bAAAAAC/bubu-dudu-cute.gif">
 <img class="sticker-right" src="https://media.tenor.com/9YF2v9j1n5gAAAAC/bubu-dudu-hug.gif">
+
 <p>
 Tum meri subah ho, meri raat ho 🌙  
 Tum meri har dua ho ✨  
+Tum meri har kahani ka sabse khoobsurat hissa ho ❤️  
 </p>
 <button onclick="nextPage(4)">Next ➡️</button>
 </div>
@@ -138,9 +144,11 @@ Tum meri har dua ho ✨
 <div class="page" id="p4">
 <img class="sticker-left" src="https://media.tenor.com/6d5b9v0rJvAAAAAC/bubu-dudu-love.gif">
 <img class="sticker-right" src="https://media.tenor.com/qFz9G7wN7bAAAAAC/bubu-dudu-cute.gif">
+
 <p>
-Main wada karta hoon  
+Main wada karta hoon…  
 Har janam sirf tumhara rahunga 💍  
+Har musibat me tumhara haath pakad kar chalunga 🌹  
 </p>
 <button onclick="nextPage(5)">Next ➡️</button>
 </div>
@@ -148,9 +156,11 @@ Har janam sirf tumhara rahunga 💍
 <div class="page" id="p5">
 <img class="sticker-left" src="https://media.tenor.com/9YF2v9j1n5gAAAAC/bubu-dudu-hug.gif">
 <img class="sticker-right" src="https://media.tenor.com/6d5b9v0rJvAAAAAC/bubu-dudu-love.gif">
+
 <p>
 Pooja…  
 Will you be mine forever? 🥹💖  
+Will you walk with me in every tomorrow? 💍  
 </p>
 <button onclick="fireworks()">YES ❤️</button>
 </div>
@@ -166,14 +176,12 @@ const backgrounds=[
 "https://images.unsplash.com/photo-1499346030926-9a72daac6c63?auto=format&fit=crop&w=1400&q=80"
 ];
 
-let current=1;
 document.body.style.backgroundImage=`url(${backgrounds[0]})`;
 
 function nextPage(n){
 document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
 document.getElementById("p"+n).classList.add("active");
 document.body.style.backgroundImage=`url(${backgrounds[n-1]})`;
-current=n;
 }
 
 setInterval(()=>{
